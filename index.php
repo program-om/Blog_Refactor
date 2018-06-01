@@ -4,22 +4,6 @@
 	// Store session Data
 ?>
 
-<?php
-	$username = $_SESSION['login_user'];
-	$authorized = $_SESSION['authorized'];
-
-	if(isset($_SESSION['login_user'])) {
-		if($authorized === "TRUE")
-			$str = '_teacher';
-		else
-			$str = '_student';
-		echo '<div class="success_login'.$str.'"> Welcome '.$username.'</div>';
-	} else {
-		
-		echo '<div class="fail_login"> Login Required </div>';
-	}
-?>
-
 <!DOCTYPE lang html>
 <html>
 	<head>
@@ -100,15 +84,15 @@
 				<script>showSection("tabpage_1", "home.php") </script> 
 			</section>
 
-			<section id="tabpage_3">	
+			<section id="tabpage_2">	
 				<script> showSection("tabpage_3", "list.php")</script>
 			</section>
 
-			<section id="tabpage_4">
+			<section id="tabpage_3">
 				<script> showSection("tabpage_4", "createPost.php") </script>
 			</section>
 
-			<section id="tabpage_5">
+			<section id="tabpage_4">
 				<script>showSection("tabpage_5", "about.html") </script>
 			</section>
 
