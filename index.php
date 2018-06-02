@@ -24,15 +24,7 @@
 		<link rel="stylesheet" type="text/css" href="w3.css" />
 
 		<script src="navigation.js"></script>
-		<style> 
-			section{
-				margin-left:20px;
-			}
-
-			a{
-				text-decoration:
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<script>
 			window.onload = function () {
 				var nav = document.getElementById("navbar");
@@ -85,15 +77,15 @@
 			</section>
 
 			<section id="tabpage_2">	
-				<script> showSection("tabpage_3", "list.php")</script>
+				<script> showSection("tabpage_2", "list.php")</script>
 			</section>
 
 			<section id="tabpage_3">
-				<script> showSection("tabpage_4", "createPost.php") </script>
+				<script> showSection("tabpage_3", "createPost.php") </script>
 			</section>
 
 			<section id="tabpage_4">
-				<script>showSection("tabpage_5", "about.html") </script>
+				<script>showSection("tabpage_4", "about.html") </script>
 			</section>
 
 			<section id="tabpage_7">

@@ -1,18 +1,10 @@
 <div>
-	<?php 
-		$authorized = $_SESSION['authorized'];
-		$str = '<div class="create post" ';
-		
-		if($authorized === "FALSE") {
-			$str .= 'hidden';
-		}
-
-		$str .= '>';
-		echo $str;
-	?>
 
 	<h2>Post a message</h2>
 	<!--Enable/disable replies-->
+	
+
+	<form action="new-post.php" method="post">
 	<div>
 		<label for="flip-1">Reply:</label>
 		<select name="flip-1" id="flip-1" data-role="slider" class="selectpicker">
@@ -20,8 +12,7 @@
 			<option value="off">Off</option>
 		</select>
 	</div> <br>
-
-	<form action="message2-cgi.php" method="post">
+	
 		<div style="width:70%">	
 			<div>						
 				<label>Name: </label>
@@ -43,3 +34,4 @@
 		</div>
 	</form>
 </div>
+
