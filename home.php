@@ -8,7 +8,7 @@
 
         $contentString = file_get_contents($file);
         $content = explode("\n", $contentString);
-        echo '<div class="well">
+        echo '<div class="well" style="width:60%">
         <div>'
         .$content[1].
         '</div>

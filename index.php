@@ -24,55 +24,11 @@
 		<link rel="stylesheet" type="text/css" href="w3.css" />
 
 		<script src="navigation.js"></script>
-		<style> 
-			section{
-				margin-left:20px;
-			}
-
-			a{
-				text-decoration:
-			}
-		</style>
-		<script>
-			window.onload = function () {
-				var nav = document.getElementById("navbar");
-				//var ul = nav.getElementsByTagName("ul")[0];
-				var tabs = nav.getElementsByTagName("a");
-				
-				// set current tab
-				var navitem = tabs[0];
-				var ident = navitem.id.split("_")[1];  // number
-				// HTML5 data-* attributes are non-presentation
-				// parent of tabs hold identity of the current tab
-				nav.setAttribute("data-current", ident);
-				
-				navitem.setAttribute("style",
-				"background-color: teal; color: white;");
-				
-				// hide all but first page
-				var pages = document.getElementsByTagName("section");
-				for (var i = 1; i < pages.length; i++) {
-					pages[i].style.display = "none";
-				}
-				
-				// connect click handler to each tab
-				for (var i = 0; i < tabs.length; i++) {
-					tabs[i].onclick = displayPage;
-				}
-			}
-
-			function showSection(id, page){
-				$(function(){
-				$("#" + id).load(page); 
-				});
-			}
-		</script>
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
 		
-		<?php include "_sidebar.php" ?>
-
-		
+		<?php include "_sidebar.html" ?>
 
 		<!-- Page Content -->
 		<div style="margin-left:15%">
@@ -83,22 +39,21 @@
 			<section id="tabpage_1">
 				<script>showSection("tabpage_1", "home.php") </script> 
 			</section>
-
+			
 			<section id="tabpage_2">	
-				<script> showSection("tabpage_3", "list.php")</script>
+				<script> showSection("tabpage_2", "list.php")</script>
 			</section>
 
 			<section id="tabpage_3">
-				<script> showSection("tabpage_4", "createPost.php") </script>
+				<script> showSection("tabpage_3", "createPost.php") </script>
 			</section>
 
 			<section id="tabpage_4">
-				<script>showSection("tabpage_5", "about.html") </script>
+				<script>showSection("tabpage_4", "about.html") </script>
 			</section>
 
 			<section id="tabpage_7">
-			</section>	
-     
+			</section>	 
 		</div>    
 	</body>
 	<!-- iframe needed to keep the reply form from redirecting the page -->
