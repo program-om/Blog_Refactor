@@ -43,8 +43,7 @@
 			'<input type="reset" value="Reset" class="w3-button w3-teal w3-round w3-tiny"/>'+
 			'<button id="cancel_button" class="w3-button w3-teal w3-round w3-tiny" data-count="' +
 			count + '" data-folder="' + folder + '">Cancel</button>' +
-			'</form>'
-			;
+			'</form>';
 		document.getElementById(replyStrNum).innerHTML = str;
 		bindToCancel();
 
@@ -61,17 +60,14 @@
 			chdir('Posts');
 			foreach (glob("*folder") as $folder) 
 			{
-				//$str .= "FOLDERNAME: ".$folder;
 				$count = 0;	
-				$str2="";
+				$str2 = "";
 				foreach (glob($folder."/*.txt") as $file) 
 				{
-					if($count==0) 
+					if($count == 0) 
 					{
-						//$str2 .= '<div class="parent_topic">';
 						$filename = substr($file, strlen($folder)+1);
 						$str2 .= 'Topic:        ' .$filename.'<br>';
-						//$str2 .= '</div>';
 					} else {
 						$filename = substr($file, strlen($folder)+1);
 						$str2 .= '--- Reply (' . $count. '):      ' . $filename.'<br>';
@@ -92,10 +88,8 @@
 
 	<?php
 		$parent_count = 0;
-		//chdir('Posts');
 		foreach (glob("*folder") as $folder) {
-			$count = 0;
-			$count2 = 0;						
+			$count = 0;					
 			foreach (glob($folder."/*.txt") as $file) {
 				if($count==0) {
 					$contentString = file_get_contents($file);
@@ -113,7 +107,8 @@
 							</div>
 						</div>
 						<hr>';
-					echo '<div>';
+
+					echo '<div>';//content of the post
 					for( $i=4; $i < count($content); $i++){
 						echo '<p>'. $content[$i] .'</p>';
 					} 
@@ -131,47 +126,26 @@
 					}
 
 					$parent_count++;
-				} else {
-					if($count2%2 == 0){
-						$contentString2 = file_get_contents($file);
-						$content2 = explode("\n", $contentString2);
-						echo '<div class="reply_file">';
-						for( $i=3; $i < count($content); $i++){
-							echo '<p>'. $content2[$i] .'</p>';
-						} 
-						echo '<div class="row post-content"></div>
-							<div class="row">
-								<div class="col-md-12 post-header-line">
-									<span class="glyphicon glyphicon-user"></span>
-									by <a>'.$content2[0].'</a> | <span class="glyphicon glyphicon-calendar">
-									</span>'.$content2[1]. '
-								</div>
+				} else {//replies
+					
+					$contentString2 = file_get_contents($file);
+					$content2 = explode("\n", $contentString2);
+					echo '<div class="reply_file">';
+					for( $i=3; $i < count($content); $i++){
+						echo '<p>'. $content2[$i] .'</p>';
+					} 
+					echo '<div class="row post-content"></div>
+						<div class="row">
+							<div class="col-md-12 post-header-line">
+								<span class="glyphicon glyphicon-user"></span>
+								by <a>'.$content2[0].'</a> | <span class="glyphicon glyphicon-calendar">
+								</span>'.$content2[1]. '
 							</div>
-							</div>
-							<br>';
-					}
-					else{
-						
-						$contentString2 = file_get_contents($file);
-						$content2 = explode("\n", $contentString2);
-						echo '<div class="reply_file">';
-						for( $i=3; $i < count($content); $i++){
-							echo '<p>'. $content2[$i] .'</p>';
-						}
-						echo '<div class="row">
-								<div class="col-md-12 post-header-line">
-									<span class="glyphicon glyphicon-user"></span>
-									by <a>'.$content2[0].'</a> | <span class="glyphicon glyphicon-calendar">
-									</span>'.$content2[1]. '
-								</div>
-							</div>
-							</div>
-							<br>';
-					}
-					$count2++;
+						</div>
+						</div>
+						<br>';
 				}
 				$count++;
-			
 			}
 			echo '</div>';
 		}
