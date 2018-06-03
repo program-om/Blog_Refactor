@@ -29,20 +29,19 @@
 		var str = '<form action="reply-cgi.php" method="post">'+
 			'<input type="hidden" name="folder" value="'+folder+'" />' +
 			'<label>Username:</label>' +
-			'<input type="text" class="form-control" style="width:40%" name="username" required autofocus /><br>' +
+			'<input type="text" class="form-control" style="width:40%" name="username" ' +
+				'required autofocus /><br>' +
 			'<label>REPLY:</label>' +
-			'<textarea class="form-control" rows="4" cols="25" style="width:40%" name="reply" required autofocus></textarea><br>' +
-			'<input type="submit" name="submit_button" value="Post Reply" class="w3-button w3-teal w3-round w3-tiny"/>'+
-			'<input type="reset" value="Reset" class="w3-button w3-teal w3-round w3-tiny"/>'+
-			'<button id="cancel_button" class="w3-button w3-teal w3-round w3-tiny" data-count="' +
-			count + '" data-folder="' + folder + '">Cancel</button>' +
+			'<textarea class="form-control" rows="4" cols="25" style="width:40%" name="reply" ' +
+				'required autofocus></textarea><br>' +
+			'<p style="display:inline"> <input type="submit" name="submit_button" value="Post Reply" '+
+				'class="w3-button w3-teal w3-round w3-tiny"/> </p>'+
+			'<p style="display:inline"> <input type="reset" value="Reset" class="w3-button w3-teal w3-round w3-tiny"/> </p>'+
+			'<p style="display:inline"> <button id="cancel_button" class="w3-button w3-teal w3-round w3-tiny" data-count="' +
+			count + '" data-folder="' + folder + '">Cancel</button> </p>' +
 			'</form>';
 		document.getElementById(replyStrNum).innerHTML = str;
 		bindToCancel();
-
-	}
-
-	function delete(){
 
 	}
 </script>
